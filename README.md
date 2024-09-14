@@ -57,7 +57,7 @@ cd ..
 
 ```
 source /opt/ros/humble/setup.bash
-export GZ_VERSION=fortress
+export IGNITION_VERSION=fortress
 colcon build --symlink-install
 ```
 

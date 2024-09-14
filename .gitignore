@@ -1,6 +1,6 @@
-*/log
-*/build
-*/install
+/log
+/build
+/install
 */*/LSS-ROS2-Control
 .vscode
 */.vscode
