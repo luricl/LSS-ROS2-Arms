@@ -25,7 +25,7 @@ def generate_launch_description() -> LaunchDescription:
     dof = LaunchConfiguration("dof")
     rviz_config = LaunchConfiguration("rviz_config")
     use_sim_time = LaunchConfiguration("use_sim_time")
-    gz_verbosity = LaunchConfiguration("gz_verbosity")
+    ign_verbosity = LaunchConfiguration("ign_verbosity")
     log_level = LaunchConfiguration("log_level")
 
     # Determine what world/robot combination to launch
@@ -44,7 +44,7 @@ def generate_launch_description() -> LaunchDescription:
 
     # List of included launch descriptions
     launch_descriptions = [
-        # Launch Gazebo with the required ROS<->GZ bridges
+        # Launch Gazebo with the required ROS<->IGN bridges
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 PathJoinSubstitution(
@@ -58,7 +58,7 @@ def generate_launch_description() -> LaunchDescription:
             ),
             launch_arguments=[
                 ("use_sim_time", use_sim_time),
-                ("gz_verbosity", gz_verbosity),
+                ("ign_verbosity", ign_verbosity),
                 ("log_level", log_level),
             ],
         ),
@@ -77,7 +77,7 @@ def generate_launch_description() -> LaunchDescription:
             launch_arguments=[
                 ("dof", dof),
                 ("use_sim_time", use_sim_time),
-                ("gz_verbosity", gz_verbosity),
+                ("ign_verbosity", ign_verbosity),
                 ("log_level", log_level),
             ],
         ),
@@ -167,7 +167,7 @@ def generate_declared_arguments() -> List[DeclareLaunchArgument]:
             description="If true, use simulated clock.",
         ),
         DeclareLaunchArgument(
-            "gz_verbosity",
+            "ign_verbosity",
             default_value="2",
             description="Verbosity level for Gazebo (0~4).",
         ),

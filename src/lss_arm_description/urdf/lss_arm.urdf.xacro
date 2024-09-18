@@ -134,7 +134,7 @@
   <!-- Gazebo - ROS 2 control -->
   <xacro:if value="$(arg ros2_control)">
     <xacro:if value="${'sim' in '$(arg ros2_control_plugin)'}">
-      <xacro:gz_ros2_control controller_parameters="$(arg ros2_controller_parameters)"/>
+      <xacro:ign_ros2_control controller_parameters="$(arg ros2_controller_parameters)"/>
     </xacro:if>
   </xacro:if>
 
