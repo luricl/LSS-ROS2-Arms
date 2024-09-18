@@ -30,7 +30,7 @@ def generate_launch_description() -> LaunchDescription:
     world = LaunchConfiguration("world")
     dof = LaunchConfiguration("dof")
     use_sim_time = LaunchConfiguration("use_sim_time")
-    gz_verbosity = LaunchConfiguration("gz_verbosity")
+    ign_verbosity = LaunchConfiguration("ign_verbosity")
     log_level = LaunchConfiguration("log_level")
 
     model = PythonExpression(["'lss_arm_", dof, "dof'"])
@@ -63,7 +63,7 @@ def generate_launch_description() -> LaunchDescription:
                     ]
                 )
             ),
-            launch_arguments=[("ign_args", [world, " -v ", gz_verbosity])],
+            launch_arguments=[("ign_args", [world, " -v ", ign_verbosity])],
         ),
     ]
 
@@ -134,7 +134,7 @@ def generate_declared_arguments() -> List[DeclareLaunchArgument]:
             description="If true, use simulated clock.",
         ),
         DeclareLaunchArgument(
-            "gz_verbosity",
+            "ign_verbosity",
             default_value="0",
             description="Verbosity level for Gazebo (0~4).",
         ),

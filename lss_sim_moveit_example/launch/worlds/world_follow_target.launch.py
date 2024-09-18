@@ -1,5 +1,5 @@
 #!/usr/bin/env -S ros2 launch
-"""Launch worlds/follow_target.sdf and the required ROS<->GZ bridges"""
+"""Launch worlds/follow_target.sdf and the required ROS<->IGN bridges"""
 
 from os import path
 from typing import List
@@ -22,7 +22,7 @@ def generate_launch_description() -> LaunchDescription:
     # Get substitution for all arguments
     world = LaunchConfiguration("world")
     use_sim_time = LaunchConfiguration("use_sim_time")
-    gz_verbosity = LaunchConfiguration("gz_verbosity")
+    ign_verbosity = LaunchConfiguration("ign_verbosity")
     log_level = LaunchConfiguration("log_level")
 
     # List of included launch descriptions
@@ -38,7 +38,7 @@ def generate_launch_description() -> LaunchDescription:
                     ]
                 )
             ),
-            launch_arguments=[("ign_args", [world, " -r -v ", gz_verbosity])],
+            launch_arguments=[("ign_args", [world, " -r -v ", ign_verbosity])],
         ),
     ]
 
@@ -101,7 +101,7 @@ def generate_declared_arguments() -> List[DeclareLaunchArgument]:
             description="If true, use simulated clock.",
         ),
         DeclareLaunchArgument(
-            "gz_verbosity",
+            "ign_verbosity",
             default_value="2",
             description="Verbosity level for Gazebo (0~4).",
         ),
