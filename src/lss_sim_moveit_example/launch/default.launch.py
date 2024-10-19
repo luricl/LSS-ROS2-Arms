@@ -27,6 +27,10 @@ def generate_launch_description() -> LaunchDescription:
     use_sim_time = LaunchConfiguration("use_sim_time")
     ign_verbosity = LaunchConfiguration("ign_verbosity")
     log_level = LaunchConfiguration("log_level")
+    # x = LaunchConfiguration("x")
+    # y = LaunchConfiguration("y")
+    # z = LaunchConfiguration("z")
+    # yaw = LaunchConfiguration("yaw")
 
     # Determine what world/robot combination to launch
     declared_arguments.append(
@@ -59,7 +63,7 @@ def generate_launch_description() -> LaunchDescription:
             launch_arguments=[
                 ("use_sim_time", use_sim_time),
                 ("ign_verbosity", ign_verbosity),
-                ("log_level", log_level),
+                ("log_level", log_level)
             ],
         ),
         # Spawn robot
@@ -79,6 +83,10 @@ def generate_launch_description() -> LaunchDescription:
                 ("use_sim_time", use_sim_time),
                 ("ign_verbosity", ign_verbosity),
                 ("log_level", log_level),
+                # ("x", x),
+                # ("y", y),
+                # ("z", z),
+                # ("yaw", yaw),
             ],
         ),
         # Launch move_group of MoveIt 2
@@ -147,7 +155,7 @@ def generate_declared_arguments() -> List[DeclareLaunchArgument]:
         # Gripper
         DeclareLaunchArgument(
             "dof",
-            default_value='4',
+            default_value='5',
             choices=['4','5'],
             description="Parameter to select gripper model."
         ),
@@ -176,4 +184,26 @@ def generate_declared_arguments() -> List[DeclareLaunchArgument]:
             default_value="warn",
             description="The level of logging that is applied to all ROS 2 nodes launched by this script.",
         ),
+
+        # Coordinates
+        # DeclareLaunchArgument(
+        #     "x",
+        #     default_value="0.0",
+        #     description="X coordinate for the robot's initial position.",
+        # ),
+        # DeclareLaunchArgument(
+        #     "y",
+        #     default_value="0.0",
+        #     description="Y coordinate for the robot's initial position.",
+        # ),
+        # DeclareLaunchArgument(
+        #     "z",
+        #     default_value="0.0",
+        #     description="Z coordinate for the robot's initial position.",
+        # ),
+        # DeclareLaunchArgument(
+        #     "yaw",
+        #     default_value="0.0",
+        #     description="Yaw angle for the robot's initial orientation.",
+        # ),
     ]
