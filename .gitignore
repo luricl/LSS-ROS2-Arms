@@ -7,5 +7,5 @@
 */*/.vscode
 lss_arm_moveit/srdf/lss_arm_4dof.sdrf
 lss_arm_moveit/srdf/lss_arm_5dof.sdrf
-lss_arm_description/urdf/*
+lss_arm_description/urdf/
 src/lss_arm_description/models
