@@ -71,6 +71,8 @@ void MoveItFollowTarget::target_pose_callback(const geometry_msgs::msg::PoseStam
     // Set default orientation (always parallel to the base)
     pose_position_only.pose.orientation = tf2::toMsg(q);
   
+    move_group_.setGoalTolerance(0.1);
+
     this->move_group_.setPoseTarget(pose_position_only.pose);
     this->move_group_.move();
   }
